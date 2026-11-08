@@ -55,11 +55,11 @@
   </style>
   <style>
 /*--------------------------
- * WOODFORD VOLUNTEER EXPLORER
+ * VOLUNTEER EXPLORER
  * www/orgchart.css
  *
  * Styles for the radial organisation chart (www/orgchart.js).
- * Colours follow the original Woodford chart: dark red rings and
+ * Colours follow the original chart: dark red rings and
  * titles, a gold centre and a gold Festival Patrons band.
  *--------------------------*/
 
@@ -789,14 +789,14 @@
   </script>
   <script>
 /*--------------------------
- * WOODFORD VOLUNTEER EXPLORER
+ * VOLUNTEER EXPLORER
  * www/orgchart.js
  *
  * Radial organisation chart, search and details panel.
  * Requires D3 v7 (www/vendor/d3.v7.9.0.min.js).
  *
  * Usage:
- *   WoodfordExplorer.mount(element, payload, options)
+ *   FestivalExplorer.mount(element, payload, options)
  *
  *   payload  - output/d3/orgchart_payload.json from
  *              03_prepare_d3_hierarchy.R
@@ -1344,8 +1344,8 @@
 
     // Centre label.
     var centre = layer.append("g").attr("class", "wve-centre-label");
-    centre.append("text").attr("y", -3).text("Woodford");
-    centre.append("text").attr("y", 9).text("Folk Festival");
+    centre.append("text").attr("y", -3).text("Gumtree Gully");
+    centre.append("text").attr("y", 9).text("Folk Gathering");
 
     // Cross links and focus ring are drawn on demand.
     var crossSel = gCross.selectAll("path");
@@ -1708,7 +1708,7 @@
 
     var roleById = new Map((payload.roles || []).map(function (r) { return [r.roleId, r]; }));
 
-    // Role description from the position export (Woodford data only).
+    // Role description from the position export.
     function roleHtml(d) {
       var r = d.roleId ? roleById.get(d.roleId) : null;
       if (!r) return "";
@@ -2200,7 +2200,7 @@
     };
   }
 
-  global.WoodfordExplorer = {
+  global.FestivalExplorer = {
     version: "0.1.0",
     mount: mount,
     searchRecords: searchRecords,
@@ -2215,7 +2215,7 @@
   <script>
     (function () {
       var payload = JSON.parse(document.getElementById("wve-payload").textContent);
-      window.wveExplorer = WoodfordExplorer.mount(
+      window.wveExplorer = FestivalExplorer.mount(
         document.getElementById("explorer"),
         payload,
         {}
